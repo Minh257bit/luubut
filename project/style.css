@@ -1,0 +1,585 @@
+:root{
+
+  --primary:#ff6fa5;
+
+  --secondary:#ffc4da;
+
+  --bg:#fff7fb;
+
+  --text:#2d3436;
+
+  --glass:rgba(255,255,255,0.55);
+
+  --shadow:
+  0 10px 40px rgba(255,111,165,0.12);
+
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+
+  font-family:'Be Vietnam Pro',sans-serif;
+
+  background:var(--bg);
+
+  color:var(--text);
+
+  min-height:100vh;
+
+  overflow-x:hidden;
+
+  padding:20px;
+
+  position:relative;
+}
+
+/* BACKGROUND */
+
+.background{
+
+  position:fixed;
+
+  inset:0;
+
+  z-index:-5;
+
+  background:
+    radial-gradient(circle at 20% 20%, #ffd2e3 0%, transparent 35%),
+    radial-gradient(circle at 80% 80%, #d6ecff 0%, transparent 35%),
+    linear-gradient(135deg,#fff7fb,#fff0f6);
+
+  background-size:200% 200%;
+
+  animation:bgMove 15s ease infinite;
+}
+
+@keyframes bgMove{
+
+  0%{
+    background-position:0% 50%;
+  }
+
+  50%{
+    background-position:100% 50%;
+  }
+
+  100%{
+    background-position:0% 50%;
+  }
+
+}
+
+/* FLOATING */
+
+.floating-container{
+
+  position:fixed;
+
+  inset:0;
+
+  overflow:hidden;
+
+  pointer-events:none;
+
+  z-index:-1;
+}
+
+.flower{
+
+  position:absolute;
+
+  top:-50px;
+
+  font-size:22px;
+
+  opacity:0.15;
+
+  animation:fall linear forwards;
+}
+
+@keyframes fall{
+
+  from{
+
+    transform:
+    translateY(-50px)
+    rotate(0deg);
+
+  }
+
+  to{
+
+    transform:
+    translateY(120vh)
+    rotate(360deg);
+
+  }
+
+}
+
+/* HERO */
+
+.hero{
+
+  text-align:center;
+
+  margin-top:70px;
+
+  animation:fadeUp 1s ease;
+}
+
+.hero h1{
+
+  font-size:3.4rem;
+
+  color:var(--primary);
+
+  font-weight:700;
+
+  animation:floatTitle 4s ease infinite;
+}
+
+.hero p{
+
+  margin-top:20px;
+
+  opacity:0.75;
+
+  font-size:1.15rem;
+}
+
+@keyframes floatTitle{
+
+  0%{
+    transform:translateY(0);
+  }
+
+  50%{
+    transform:translateY(-6px);
+  }
+
+  100%{
+    transform:translateY(0);
+  }
+
+}
+
+/* GLASS */
+
+.glass{
+
+  background:var(--glass);
+
+  backdrop-filter:blur(16px);
+
+  border:1px solid rgba(255,255,255,0.4);
+
+  box-shadow:var(--shadow);
+}
+
+/* WRITE BOX */
+
+.write-box{
+
+  max-width:760px;
+
+  margin:45px auto;
+
+  padding:35px;
+
+  border-radius:32px;
+
+  animation:fadeUp 1s ease;
+}
+
+.write-box input,
+.write-box textarea,
+.modal-box input{
+
+  width:100%;
+
+  border:none;
+
+  outline:none;
+
+  border-radius:22px;
+
+  padding:18px;
+
+  margin-bottom:18px;
+
+  background:rgba(255,255,255,0.55);
+
+  font-family:inherit;
+
+  font-size:1rem;
+
+  transition:0.25s;
+}
+
+.write-box textarea{
+
+  min-height:220px;
+
+  resize:vertical;
+}
+
+.write-box input:focus,
+.write-box textarea:focus,
+.modal-box input:focus{
+
+  transform:scale(1.01);
+
+  box-shadow:
+  0 0 0 4px rgba(255,111,165,0.12);
+}
+
+/* BUTTONS */
+
+.write-box button,
+.vault-btn,
+.modal-submit{
+
+  border:none;
+
+  border-radius:22px;
+
+  padding:18px;
+
+  cursor:pointer;
+
+  font-weight:700;
+
+  color:white;
+
+  background:
+  linear-gradient(
+    135deg,
+    #ff6fa5,
+    #ffb4cf
+  );
+
+  transition:0.25s;
+
+  box-shadow:
+  0 8px 25px rgba(255,111,165,0.25);
+}
+
+.write-box button,
+.modal-submit{
+  width:100%;
+}
+
+.write-box button:hover,
+.vault-btn:hover,
+.modal-submit:hover{
+
+  transform:
+  translateY(-3px)
+  scale(1.02);
+
+}
+
+.center{
+  text-align:center;
+}
+
+.vault-btn{
+  padding:18px 34px;
+}
+
+/* MODAL */
+
+.modal{
+
+  position:fixed;
+
+  inset:0;
+
+  background:rgba(0,0,0,0.35);
+
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  z-index:1000;
+
+  animation:fadeIn 0.3s ease;
+}
+
+.hidden{
+  display:none !important;
+}
+
+.modal-box{
+
+  position:relative;
+
+  width:90%;
+  max-width:420px;
+
+  border-radius:35px;
+
+  padding:35px;
+
+  text-align:center;
+
+  animation:popup 0.35s ease;
+}
+
+.modal-box h2{
+
+  color:var(--primary);
+
+  margin-bottom:12px;
+
+  font-size:2rem;
+}
+
+.modal-box p{
+
+  opacity:0.7;
+
+  margin-bottom:20px;
+}
+
+@keyframes popup{
+
+  from{
+
+    opacity:0;
+
+    transform:
+    scale(0.8)
+    translateY(20px);
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:
+    scale(1)
+    translateY(0);
+  }
+
+}
+
+/* CLOSE */
+
+.close-btn{
+
+  position:absolute;
+
+  top:14px;
+  right:14px;
+
+  width:32px;
+  height:32px;
+
+  border:none;
+
+  border-radius:50%;
+
+  cursor:pointer;
+
+  background:rgba(255,255,255,0.8);
+
+  color:#666;
+
+  font-size:0.9rem;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  transition:0.2s;
+}
+
+.close-btn:hover{
+
+  transform:rotate(90deg);
+
+  background:white;
+}
+
+/* VAULT */
+
+.vault{
+
+  max-width:1200px;
+
+  margin:80px auto;
+
+  animation:fadeUp 1s ease;
+}
+
+.vault h2{
+
+  text-align:center;
+
+  color:var(--primary);
+
+  margin-bottom:40px;
+
+  font-size:2.4rem;
+}
+
+.messages{
+
+  display:grid;
+
+  grid-template-columns:
+  repeat(auto-fit,minmax(320px,1fr));
+
+  gap:28px;
+}
+
+/* CARD */
+
+.card{
+
+  position:relative;
+
+  padding:28px;
+
+  border-radius:30px;
+
+  overflow:hidden;
+
+  transition:0.35s;
+
+  animation:fadeUp 0.6s ease;
+}
+
+.card:hover{
+
+  transform:
+  translateY(-6px)
+  scale(1.015);
+}
+
+.card-name{
+
+  color:var(--primary);
+
+  font-size:1.1rem;
+
+  font-weight:700;
+
+  margin-bottom:16px;
+}
+
+.card-message{
+
+  line-height:1.9;
+
+  white-space:pre-wrap;
+}
+
+.card-time{
+
+  margin-top:22px;
+
+  opacity:0.5;
+
+  font-size:0.9rem;
+}
+
+/* DELETE */
+
+.delete-btn{
+
+  position:absolute;
+
+  top:14px;
+  right:14px;
+
+  width:30px;
+  height:30px;
+
+  border:none;
+
+  border-radius:50%;
+
+  cursor:pointer;
+
+  background:rgba(255,255,255,0.5);
+
+  color:#777;
+
+  transition:0.2s;
+}
+
+.delete-btn:hover{
+
+  transform:scale(1.1);
+
+  background:#ffd3e1;
+}
+
+/* ANIMATIONS */
+
+@keyframes fadeUp{
+
+  from{
+
+    opacity:0;
+
+    transform:translateY(30px);
+
+  }
+
+  to{
+
+    opacity:1;
+
+    transform:translateY(0);
+
+  }
+
+}
+
+@keyframes fadeIn{
+
+  from{
+    opacity:0;
+  }
+
+  to{
+    opacity:1;
+  }
+
+}
+
+/* MOBILE */
+
+@media(max-width:768px){
+
+  body{
+    padding:16px;
+  }
+
+  .hero h1{
+    font-size:2.2rem;
+  }
+
+  .write-box{
+    padding:22px;
+  }
+
+  .write-box textarea{
+    min-height:170px;
+  }
+
+  .messages{
+    grid-template-columns:1fr;
+  }
+
+}

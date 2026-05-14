@@ -1,0 +1,130 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+
+  <meta charset="UTF-8" />
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  />
+
+  <title>🌸 Lưu Bút Thùy Dương</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="style.css" />
+
+</head>
+
+<body>
+
+<!-- BACKGROUND -->
+
+<div class="background"></div>
+
+<div class="floating-container" id="floating"></div>
+
+<!-- HERO -->
+
+<header class="hero">
+
+  <h1>🌸 Lưu Bút Dành Cho Thùy Dương</h1>
+
+  <p>
+    Nơi mọi người lưu lại những điều đẹp nhất ✨
+  </p>
+
+</header>
+
+<!-- WRITE -->
+
+<section class="write-box glass">
+
+  <input
+    type="text"
+    id="name"
+    placeholder="Tên của bạn..."
+  />
+
+  <textarea
+    id="message"
+    placeholder="Viết điều bạn muốn gửi 💌"
+  ></textarea>
+
+  <button onclick="sendMessage()">
+    💖 Gửi vào lưu bút
+  </button>
+
+</section>
+
+<!-- OPEN -->
+
+<div class="center">
+
+  <button class="vault-btn" onclick="openVault()">
+    🌙 Mở lưu bút
+  </button>
+
+</div>
+
+<!-- PASSWORD MODAL -->
+
+<div id="passwordModal" class="modal hidden">
+
+  <div class="modal-box glass">
+
+    <button
+      class="close-btn"
+      onclick="closeModal()"
+    >
+      ✕
+    </button>
+
+    <h2>🌙 Kho lưu bút</h2>
+
+    <p>
+      Nhập mật khẩu để mở ✨
+    </p>
+
+    <input
+      type="password"
+      id="passwordInput"
+      placeholder="Nhập mật khẩu..."
+    />
+
+    <button
+      class="modal-submit"
+      onclick="checkPassword()"
+    >
+      💖 Mở lưu bút
+    </button>
+
+  </div>
+
+</div>
+
+<!-- VAULT -->
+
+<section id="vault" class="vault hidden">
+
+  <h2>✨ Những kỷ niệm</h2>
+
+  <div id="messages" class="messages"></div>
+
+</section>
+
+<script type="module" src="firebase.js"></script>
+
+<script type="module" src="app.js"></script>
+
+</body>
+</html>
